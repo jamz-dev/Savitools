@@ -161,6 +161,10 @@ jobs:
       - name: Generate and validate the OpenAPI contract
         run: npm run test:openapi
 
+      # Verifies bundled external SDK generator specs (Fluxa, CrowdPay) match upstream (#428)
+      - name: Verify bundled external SDK generator specs are current
+        run: npm run specs:check
+
   docker-build:
     name: Docker Build & Smoke (API)
     runs-on: ubuntu-latest
